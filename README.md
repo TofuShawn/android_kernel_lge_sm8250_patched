@@ -49,9 +49,9 @@ errors — but the `.dtbo` it produces are broken and must **not** be flashed; k
   handling it (`SafeString.c (651): DestLength > SourceLength`) and lands in the same Sahara
   mode. Flash only files trimmed to real content (~24 MB).
 
-Slot **B is not a rollback**: it holds the LG stock kernel (`4.19.325-perf-g58de0a03839c`),
-which will not drive a LineageOS system. Keep a verified copy of your current `boot_a` and
-flash that back instead.
+Back up your own boot before flashing: dump `/dev/block/by-name/boot_a`, verify the copy,
+and restore from that. Do not assume the other slot is a rollback — check what it actually
+holds first.
 
 ```bash
 fastboot flash boot_a <your-boot.img>
